@@ -74,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let hasCounted = false;
 
     const countUp = (el) => {
-        const target = parseInt(el.getAttribute('data-target'));
-        const duration = 2000; // 2 seconds
-        const start = 0;
+        const target = parseInt(el.getAttribute('data-target')) || 0;
+        const duration = parseInt(el.getAttribute('data-duration')) || 2000;
+        const suffix = el.getAttribute('data-suffix') || '';
         let startTime = null;
 
         const animate = (currentTime) => {
@@ -88,12 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const easeProgress = 1 - Math.pow(1 - percentage, 4);
             
             const currentCount = Math.floor(easeProgress * target);
-            el.innerText = currentCount;
+            el.innerText = currentCount + suffix;
 
             if (progress < duration) {
                 requestAnimationFrame(animate);
             } else {
-                el.innerText = target;
+                el.innerText = target + suffix;
             }
         };
 
