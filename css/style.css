@@ -388,7 +388,7 @@ section {
 }
 @media (min-width: 768px) {
     .hero-content {
-        width: 55%;
+        flex: 0 0 55%;
         padding-left: 5%;
         padding-right: var(--space-6);
     }
@@ -486,7 +486,7 @@ section {
 }
 @media (min-width: 768px) {
     .hero-image-wrapper {
-        width: 45%;
+        flex: 0 0 45%;
         min-height: 100%;
     }
 }
